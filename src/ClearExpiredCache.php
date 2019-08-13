@@ -31,7 +31,7 @@ class ClearExpiredCache extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Clear file cache expired files';
 
     /** @var Filesystem */
     protected $files;
@@ -39,9 +39,10 @@ class ClearExpiredCache extends Command
     /** @var int */
     protected $counter = 0;
 
-
+    /** @var bool */
     protected $dir = false;
 
+    /** @var bool */
     protected $interactive = false;
 
     /**
@@ -68,6 +69,12 @@ class ClearExpiredCache extends Command
         $this->interactive = $this->option('interactive', false);
 
         $this->checkDir($cacheDir);
+
+        if ($this->interactive) {
+            $this->info('Total checked files:' . $this->counter);
+        }
+
+        return true;
     }
 
     /**
