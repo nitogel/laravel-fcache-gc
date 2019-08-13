@@ -8,7 +8,7 @@
         "laravel"
     ],
     "homepage": "https://github.com/spatie/laravel-backup",
-    "license": "Apache",
+    "license": "MIT",
     "authors": [
         {
             "name": "Kirill Legotin",
