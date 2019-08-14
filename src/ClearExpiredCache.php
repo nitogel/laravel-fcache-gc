@@ -102,9 +102,12 @@ class ClearExpiredCache extends Command
 
         $this->dirLoop($folders);
 
-        $files = $this->files->files($path);
-
-        if (empty($files) && $this->dir) {
+        if (
+            $this->dir
+            && strpos($path, 'data') === false
+            && empty($this->files->files($path))
+            && empty($this->files->directories($path))
+        ) {
 
             if (!$this->interactive) {
                 $this->files->deleteDirectory($path);
