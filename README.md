@@ -1,5 +1,4 @@
-# laravel-fcache-gc
-Laravel's file cache expired garbage collector
+# Laravel file cache garbage collector
 
 When using the file cache driver, Laravel creates the cache files but never purges expired ones. This can lead to
 a situation where you have a large number of unused and irrelevant cache files, especially if you do a lot of short-term
