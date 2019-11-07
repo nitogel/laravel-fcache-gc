@@ -2,10 +2,10 @@
 
 namespace Nitogel\LaravelFileCacheGarbageCollector;
 
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\InteractsWithTime;
 use SplFileInfo;
 use SplFileObject;
 
@@ -18,7 +18,6 @@ use SplFileObject;
  */
 class ClearExpiredCache extends Command
 {
-    use InteractsWithTime;
     /**
      * The name and signature of the console command.
      *
@@ -189,7 +188,7 @@ class ClearExpiredCache extends Command
             return false;
         }
 
-        if ($this->currentTime() >= $expire) {
+        if (Carbon::now()->getTimestamp() >= $expire) {
             return true;
         }
 
